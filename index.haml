@@ -2,6 +2,7 @@
 %html
   %head
     %link{:rel => "stylesheet", :type => "text/css", :href => "scss/resume.css"}
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700,300", :rel => "stylesheet", :type => "text/css"}
   %body
     .top-header
       .name
@@ -27,17 +28,19 @@
         .position
           Bachelor of Science in Computer Science and Information Science
         .offsetList
-          Honors
-          .item
-            GPA 3.6/4.0
-          .item
-            Deans List 2006-2010
-          .item
-            Named One of Top 100 Influential Seniors
-          .item
-            Received one of sixteen 2010 Outstanding Co-op Awards
-          .item
-            First Place in 2010 National Collegiate Cyber Defence Competition
+          .name
+            Honors
+          .items
+            .item
+              GPA 3.6/4.0
+            .item
+              Deans List 2006-2010
+            .item
+              Named One of Top 100 Influential Seniors
+            .item
+              Received one of sixteen 2010 Outstanding Co-op Awards
+            .item
+              First Place in 2010 National Collegiate Cyber Defence Competition
     .subsection
       .title
         Work Experience
@@ -55,7 +58,9 @@
           .tidbit
             Prototyped, Designed and was Lead Engineer on Rockmelt's web application.
           .tidbit
-            Evaluated libraries and reverse engineered performance limitations.
+            Evaluated javascript libraries and reverse engineered performance limitations.
+          .tidbit
+            Worked on integrating Facebook features into native UI of a browser.
       .entry
         .header
           .name
@@ -172,4 +177,22 @@
             Python
           .entry
             Ruby
+      .skill-section
+        .name
+          Tools
+        .entries
+          .entry
+            Vim
+          .entry
+            git
+          .entry
+            XCode
+          .entry
+            Visual Studio
+          .entry
+            Photoshop
+          .entry
+            Sublime Text
+          .entry
+            TextMate
 

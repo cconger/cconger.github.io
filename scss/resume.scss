@@ -1,7 +1,8 @@
 body {
-  margin: 0;
+  width: 900px;
+  margin: 30px auto 100px auto;
   padding: 0;
-  font-family: helvetica, arial;
+  font-family: 'Open Sans', helvetica, arial, sans-serif;
 }
 
 div {
@@ -16,6 +17,7 @@ div {
   .name {
     text-align: center;
     font-size: 30px;
+    font-weight: bold;
   }
 
   .subheader {
@@ -40,14 +42,18 @@ div {
 }
 
 .subsection {
+  margin-top: 30px;
+
 
   .title {
     font-size: 24px;
     font-weight: bold;
-    color: #999999;
+    color: #AAAAAA;
   }
 
   .entry {
+    margin-bottom: 20px;
+
     .header {
       position: relative;
 
@@ -60,17 +66,31 @@ div {
 
       .location {
         display: inline-block;
+        font-size: 14px;
       }
       
       .dates {
         position: absolute;
         bottom: 0;
         right: 0;
+        font-size: 14px;
+      }
+    }
+
+    .offsetList {
+      .name {
+        font-weight: bold;
+        width: 100px;
+        float: left;
+      }
+      .items {
+        display: inline-block;
       }
     }
 
     .position {
       padding-left: 15px;
+      font-style: italic;
     }
 
     .tidbits {
@@ -79,6 +99,18 @@ div {
       .tidbit {
         padding-left: 15px;
       }
+    }
+  }
+}
+
+.skill-section {
+  .name {
+    font-weight: bold;
+  }
+  .entries {
+    .entry {
+      display: inline-block;
+      margin: 0 2px;
     }
   }
 }

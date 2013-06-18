@@ -1,7 +1,8 @@
 body {
-  margin: 0;
+  width: 900px;
+  margin: 30px auto 100px auto;
   padding: 0;
-  font-family: helvetica, arial; }
+  font-family: "Open Sans", helvetica, arial, sans-serif; }
 
 div {
   margin: 0;
@@ -12,7 +13,8 @@ div {
   text-align: center; }
   .top-header .name {
     text-align: center;
-    font-size: 30px; }
+    font-size: 30px;
+    font-weight: bold; }
   .top-header .subheader {
     position: relative; }
     .top-header .subheader .email {
@@ -26,26 +28,45 @@ div {
       right: 0;
       bottom: 0; }
 
-.subsection .title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #999999; }
-.subsection .entry .header {
-  position: relative; }
-  .subsection .entry .header .name {
-    display: inline-block;
-    font-size: 20px;
+.subsection {
+  margin-top: 30px; }
+  .subsection .title {
+    font-size: 24px;
     font-weight: bold;
-    text-transform: uppercase; }
-  .subsection .entry .header .location {
-    display: inline-block; }
-  .subsection .entry .header .dates {
-    position: absolute;
-    bottom: 0;
-    right: 0; }
-.subsection .entry .position {
-  padding-left: 15px; }
-.subsection .entry .tidbits {
-  padding-left: 15px; }
-  .subsection .entry .tidbits .tidbit {
-    padding-left: 15px; }
+    color: #AAAAAA; }
+  .subsection .entry {
+    margin-bottom: 20px; }
+    .subsection .entry .header {
+      position: relative; }
+      .subsection .entry .header .name {
+        display: inline-block;
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase; }
+      .subsection .entry .header .location {
+        display: inline-block;
+        font-size: 14px; }
+      .subsection .entry .header .dates {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 14px; }
+    .subsection .entry .offsetList .name {
+      font-weight: bold;
+      width: 100px;
+      float: left; }
+    .subsection .entry .offsetList .items {
+      display: inline-block; }
+    .subsection .entry .position {
+      padding-left: 15px;
+      font-style: italic; }
+    .subsection .entry .tidbits {
+      padding-left: 15px; }
+      .subsection .entry .tidbits .tidbit {
+        padding-left: 15px; }
+
+.skill-section .name {
+  font-weight: bold; }
+.skill-section .entries .entry {
+  display: inline-block;
+  margin: 0 2px; }

@@ -1,0 +1,85 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: helvetica, arial;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+.top-header {
+  border-bottom: solid thin black;
+  text-align: center;
+
+  .name {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .subheader {
+    position: relative;
+
+    .email {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .address {
+      text-align: center;
+    }
+
+    .phone {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.subsection {
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #999999;
+  }
+
+  .entry {
+    .header {
+      position: relative;
+
+      .name {
+        display: inline-block;
+        font-size: 20px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .location {
+        display: inline-block;
+      }
+      
+      .dates {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    .position {
+      padding-left: 15px;
+    }
+
+    .tidbits {
+      padding-left: 15px;
+
+      .tidbit {
+        padding-left: 15px;
+      }
+    }
+  }
+}
+

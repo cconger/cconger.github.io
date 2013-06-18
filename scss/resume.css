@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: helvetica, arial; }
+
+div {
+  margin: 0;
+  padding: 0; }
+
+.top-header {
+  border-bottom: solid thin black;
+  text-align: center; }
+  .top-header .name {
+    text-align: center;
+    font-size: 30px; }
+  .top-header .subheader {
+    position: relative; }
+    .top-header .subheader .email {
+      position: absolute;
+      left: 0;
+      bottom: 0; }
+    .top-header .subheader .address {
+      text-align: center; }
+    .top-header .subheader .phone {
+      position: absolute;
+      right: 0;
+      bottom: 0; }
+
+.subsection .title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #999999; }
+.subsection .entry .header {
+  position: relative; }
+  .subsection .entry .header .name {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase; }
+  .subsection .entry .header .location {
+    display: inline-block; }
+  .subsection .entry .header .dates {
+    position: absolute;
+    bottom: 0;
+    right: 0; }
+.subsection .entry .position {
+  padding-left: 15px; }
+.subsection .entry .tidbits {
+  padding-left: 15px; }
+  .subsection .entry .tidbits .tidbit {
+    padding-left: 15px; }

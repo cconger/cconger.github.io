@@ -70,3 +70,11 @@ div {
 .skill-section .entries .entry {
   display: inline-block;
   margin: 0 2px; }
+  .skill-section .entries .entry:first-child:before {
+    display: none; }
+  .skill-section .entries .entry:before {
+    content: "|";
+    display: inline-block;
+    color: #999999;
+    margin: 0;
+    padding: 0; }

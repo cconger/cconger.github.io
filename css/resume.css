@@ -18,7 +18,8 @@ div{margin:0;padding:0}
 .subsection .entry .position{padding-left:15px;font-style:italic}
 .subsection .entry .tidbits{padding-left:15px;}
 .subsection .entry .tidbits .tidbit{padding-left:15px}
-.skill-section .name{font-weight:bold}
+.skill-section .name{font-weight:bold;display:inline-block;width:100px}
+.skill-section .entries{display:inline-block;}
 .skill-section .entries .entry{display:inline-block;margin:0 2px;}
 .skill-section .entries .entry:first-child:before{display:none}
-.skill-section .entries .entry:before{content:"|";display:inline-block;color:#999;margin:0;padding:0}
+.skill-section .entries .entry:before{content:"|";display:inline-block;color:#999;margin:0 4px 0 0;padding:0}

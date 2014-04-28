@@ -8,7 +8,7 @@ div{margin:0;padding:0}
 .top-header .subheader .phone{position:absolute;right:0;bottom:0}
 .subsection{margin-top:30px;}
 .subsection .title{font-size:24px;font-weight:bold;color:#aaa}
-.subsection .entry{margin-bottom:20px;}
+.subsection .entry{margin-bottom:20px;page-break-after:avoid;}
 .subsection .entry .header{position:relative;}
 .subsection .entry .header .name{display:inline-block;font-size:20px;font-weight:bold;text-transform:uppercase}
 .subsection .entry .header .location{display:inline-block;font-size:14px;padding:0 8px}

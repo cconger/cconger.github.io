@@ -1,15 +1,15 @@
 {
   "name": "cconger.github.io",
-  "version": "2013.09.23.0",
-  "description": "My Resume",
+  "version": "2018.09.20",
+  "description": "My resume compiled to different formats",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cconger/cconger.github.io"
+    "url": "github.com/cconger/cconger.github.io"
   },
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jade": "~0.8.0",
-    "grunt-contrib-stylus": "~0.8.0",
-    "grunt-contrib-watch": "~0.5.3"
+  "author": "cconger+resume@gmail.com",
+  "dependencies": {
+    "handlebars": "^4.0.12",
+    "handlebars-intl": "^1.1.2",
+    "toml": "^2.3.3"
   }
 }

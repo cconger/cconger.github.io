@@ -1,0 +1,139 @@
+[owner]
+firstname = "Channing"
+lastname  = "Conger"
+phone     = "650.262.0112"
+email     = "c.conger@gmail.com"
+
+[[job]]
+  business = "Twitch"
+  location = "San Francisco, CA"
+  title    = "Senior Software Engineer - L6"
+  start    = 2014-12-08T12:00:00Z
+  languages  = ["typescript", "go", "js"]
+  frameworks = ["react", "twirp", "graphql", "apollo", "aws", "ember"]
+  projects = [
+    "Developed PoC deployment of OpenConnect-like caching host for improving Twitch's video replication network",
+    "Architected, documented, and implemented a social sharing platform to operate for 15MM+ DAU",
+    "Lead Engineer developing talent and providing architecture, guidance and recruiting for two consumer product teams",
+    "Implemented PoC implementation to evangelize GraphQL by translating requests to our existing REST backend",
+    "Member of working group to rearchitect our web application to scale to increasing developers and experiments",
+    "Migrated application stacks to orchestrated container systems for cleaner deployment and management stories",
+  ]
+
+[[job]]
+  business = "Interana"
+  location = "Palo Alto, CA"
+  title    = "Engineer"
+  start    = 2014-05-19T12:00:00Z
+  end      = 2014-09-26T12:00:00Z
+  languages  = ["js", "python", "c++"]
+  frameworks = ["react", "tornado", "node", "webpack"]
+  projects = [
+    "Introduced a modern build proess and React to our data visualation and query web application",
+    "Migrated legacy PHP into Tornado backed Python stack",
+    "Built a flow control wrapper to enable evented async handling of long query operations",
+    "Tweaked Nginx and Tornado configuration and deployment to improve throughput",
+  ]
+
+[[job]]
+  business = "Out of Worlds"
+  location = "Sunnyvale, CA"
+  title    = "Founder / Engineer"
+  start    = 2013-12-01T12:00:00Z
+  end      = 2014-05-19T12:00:00Z
+  languages  = ["js", "go", "opengl"]
+  frameworks = ["node", "webgl", "three.js"]
+  projects = [
+    "Prototyped a WebGL based 3D online multiplayer game",
+    "Implemented lag mitigating network protocol in JS and Go over Websockets",
+    "Implemented a horizontally and dynamically scalable instanced game server",
+  ]
+
+[[job]]
+  business = "500Friends Inc"
+  location = "San Francisco, CA"
+  title    = "Senior Software Engineer"
+  start    = 2013-08-01T12:00:00Z
+  end      = 2013-12-01T12:00:00Z
+  languages  = ["js", "c++"]
+  frameworks = ["extensions"]
+  projects = [
+    "Built a platform for cross-compiling browser extensions to Chrome, Firefox and IE",
+    "Rebuilt templating and branding system for our rewards browser extensions",
+  ]
+
+[[job]]
+  business = "Rockmelt Inc"
+  location = "Mountain View, CA"
+  title    = "Software Engineer"
+  start    = 2010-11-15T12:00:00Z
+  end      = 2013-08-01T12:00:00Z
+  languages  = ["js", "c++"]
+  frameworks = ["chrome", "extensions"]
+  projects = [ "Prototyped, designed and developed the core of Rockmelt's web application",
+    "Lead engineer of the Rockmelt web application team as we grew from 1 to 5",
+    "Evaluated Javascript libraries for performance and ergonomics with an eye for limiting our built footprint",
+    "Implemented a declarative Javascript web application framework for rapid iteration",
+    "Integrated core Facebook features into native UI of our Chromium derived browser",
+  ]
+
+[[legacy]]
+  business = "Hun Management"
+  location = "San Francisco, CA"
+  title    = "Platform Engineer"
+  start    = 2010-06-01T12:00:00Z
+  end      = 2010-11-15T12:00:00Z
+  languages  = ["c++", "python"]
+  frameworks = ["FIX", "STL"]
+  projects = [
+    "Optimized and refactored the C++ trading platform",
+    "Worked with trading staff in developing strategies against our platform",
+    "Reverse engineered remote service implemenations for optimal entry of orders during market open",
+    "Moved trading platform into managed source control (git)",
+  ]
+
+[[legacy]]
+  business = "Microsoft"
+  location = "Issaquah, WA"
+  title    = "Software Engineer Intern"
+  start    = 2009-01-01T12:00:00Z
+  end      = 2009-06-15T12:00:00Z
+  intern   = true
+  languages  = ["C#", "js"]
+  projects = [
+    "Developed UI for managing configuration environment variables",
+    "Designed and developed ASP.NET WCF powered web app for users to manage email subscriptions",
+    "Bridged three separate teams and servies to create the above subscription manager",
+    "Maintained our team's 50+ server dev and test labratory",
+  ]
+
+[[legacy]]
+  business = "Google"
+  location = "Phoenix, AZ"
+  title    = "IT Field Tech Intern"
+  start    = 2008-01-01T12:00:00Z
+  end      = 2008-08-15T12:00:00Z
+  intern   = true
+  languages  = ["ruby", "java", "c++"]
+  projects = [
+    "Designed and deployed award-winning prototype chat bot for automation of Field Tech support",
+    "Contributed to Rails application for indexing and registration of internal applications",
+    "Supported engineering and sales offices in the Southwest Region of the US both remotely and locally",
+  ]
+
+[[degree]]
+  institution = "Northeastern University"
+  title      = "Bachelor of Science in Computer Science and Information Science"
+  location   = "Boston, MA"
+  start      = 2006-09-01T12:00:00Z
+  end        = 2010-05-01T12:00:00Z
+  accolades  = [
+    "Deans List 2006-2010",
+    "Named One of Top 100 Influential Seniors",
+    "Received one of sixteen 2010 Outstanding Co-op Awards",
+    "First Place in 2010 National Collegiate Cyber Defense Competition",
+  ]
+  [degree.gpa]
+    earned = 3.6
+    max = 4.0
+

@@ -5,87 +5,98 @@ phone     = "650.262.0112"
 email     = "c.conger@gmail.com"
 
 [[job]]
-  business = "Twitch"
-  location = "San Francisco, CA"
-  title    = "Senior Software Engineer - L6"
-  start    = 2014-12-08T12:00:00Z
-  languages  = ["typescript", "go", "js"]
-  frameworks = ["react", "twirp", "graphql", "apollo", "aws", "ember"]
-  projects = [
+  business     = "Neflix"
+  location    = "Los Gatos, CA"
+  title        = "Senior Software Engineer"
+  start        = 2019-01-07T12:00:00Z
+  languages    = ["go", "js", "python"]
+  technologies = ["kubernetes", "aws", "openfaas"]
+  projects     = [
+    "Developed and operated serverless platform for abstracting Netflix infrastructure from application logic",
+    "Built out multi-container workload deployment on Netflix's container orchestrator, Titus",
+    "Partnered with the Machine Learning Infrastructure team to provide the hosting for trained models"
+  ]
+
+[[job]]
+  business     = "Twitch"
+  location     = "San Francisco, CA"
+  title        = "Senior Software Engineer"
+  start        = 2014-12-08T12:00:00Z
+  end          = 2019-01-02T12:00:00Z
+  languages    = ["typescript", "go", "js"]
+  technologies = ["react", "graphql", "apollo", "aws", "ember"]
+  projects     = [
     "Developed PoC deployment of OpenConnect-like caching host for improving Twitch's video replication network",
-    "Architected, documented, and implemented a social sharing platform to operate for 15MM+ DAU",
-    "Lead Engineer developing talent and providing architecture, guidance and recruiting for two consumer product teams",
-    "Implemented PoC implementation to evangelize GraphQL by translating requests to our existing REST backend",
-    "Member of working group to rearchitect our web application to scale to increasing developers and experiments",
-    "Migrated application stacks to orchestrated container systems for cleaner deployment and management stories",
+    "Architected, documented, and implemented a social content sharing platform to operate for 15MM+ DAU",
+    "Implemented PoC Client Translation to evangelize and migrate web application to GraphQL",
+    "Member of working group to rearchitect our web application to scale to a larger team of contributors and experiments",
+    "Invested in application deployment process by adopting containers",
   ]
 
 [[job]]
-  business = "Interana"
-  location = "Palo Alto, CA"
-  title    = "Engineer"
-  start    = 2014-05-19T12:00:00Z
-  end      = 2014-09-26T12:00:00Z
-  languages  = ["js", "python", "c++"]
-  frameworks = ["react", "tornado", "node", "webpack"]
-  projects = [
+  business     = "Interana"
+  location     = "Palo Alto, CA"
+  title        = "Engineer"
+  start        = 2014-05-19T12:00:00Z
+  end          = 2014-09-26T12:00:00Z
+  languages    = ["js", "python", "c++"]
+  technologies = ["react", "tornado", "node", "webpack"]
+  projects     = [
     "Introduced a modern build proess and React to our data visualation and query web application",
-    "Migrated legacy PHP into Tornado backed Python stack",
+    "Reachitected web server for query submission with a focus on improving single host throughput",
     "Built a flow control wrapper to enable evented async handling of long query operations",
-    "Tweaked Nginx and Tornado configuration and deployment to improve throughput",
   ]
 
 [[job]]
-  business = "Out of Worlds"
-  location = "Sunnyvale, CA"
-  title    = "Founder / Engineer"
-  start    = 2013-12-01T12:00:00Z
-  end      = 2014-05-19T12:00:00Z
-  languages  = ["js", "go", "opengl"]
-  frameworks = ["node", "webgl", "three.js"]
-  projects = [
+  business     = "Out of Worlds"
+  location     = "Sunnyvale, CA"
+  title        = "Founder / Engineer"
+  start        = 2013-12-01T12:00:00Z
+  end          = 2014-05-19T12:00:00Z
+  languages    = ["js", "go", "opengl"]
+  technologies = ["node", "webgl", "three.js"]
+  projects     = [
     "Prototyped a WebGL based 3D online multiplayer game",
     "Implemented lag mitigating network protocol in JS and Go over Websockets",
-    "Implemented a horizontally and dynamically scalable instanced game server",
+    "Designed a horizontally and automatically scalable instanced game server infrastructure",
   ]
 
 [[job]]
-  business = "500Friends Inc"
-  location = "San Francisco, CA"
-  title    = "Senior Software Engineer"
-  start    = 2013-08-01T12:00:00Z
-  end      = 2013-12-01T12:00:00Z
-  languages  = ["js", "c++"]
-  frameworks = ["extensions"]
-  projects = [
+  business     = "500Friends Inc"
+  location     = "San Francisco, CA"
+  title        = "Senior Software Engineer"
+  start        = 2013-08-01T12:00:00Z
+  end          = 2013-12-01T12:00:00Z
+  languages    = ["js", "c++"]
+  technologies = ["extensions"]
+  projects     = [
     "Built a platform for cross-compiling browser extensions to Chrome, Firefox and IE",
     "Rebuilt templating and branding system for our rewards browser extensions",
   ]
 
 [[job]]
-  business = "Rockmelt Inc"
-  location = "Mountain View, CA"
-  title    = "Software Engineer"
-  start    = 2010-11-15T12:00:00Z
-  end      = 2013-08-01T12:00:00Z
-  languages  = ["js", "c++"]
-  frameworks = ["chrome", "extensions"]
-  projects = [ "Prototyped, designed and developed the core of Rockmelt's web application",
-    "Lead engineer of the Rockmelt web application team as we grew from 1 to 5",
-    "Evaluated Javascript libraries for performance and ergonomics with an eye for limiting our built footprint",
+  business     = "Rockmelt Inc"
+  location     = "Mountain View, CA"
+  title        = "Software Engineer"
+  start        = 2010-11-15T12:00:00Z
+  end          = 2013-08-01T12:00:00Z
+  languages    = ["js", "c++"]
+  technologies = ["chrome", "cocoa", "extensions"]
+  projects     = [ "Prototyped, designed and developed the core of Rockmelt's web application",
+    "Lead engineer of the Rockmelt web application team as staff from 1 to 5",
     "Implemented a declarative Javascript web application framework for rapid iteration",
-    "Integrated core Facebook features into native UI of our Chromium derived browser",
+    "Integrated core Facebook features into native UI of our Chromium-derived browser",
   ]
 
 [[legacy]]
-  business = "Hun Management"
-  location = "San Francisco, CA"
-  title    = "Platform Engineer"
-  start    = 2010-06-01T12:00:00Z
-  end      = 2010-11-15T12:00:00Z
-  languages  = ["c++", "python"]
-  frameworks = ["FIX", "STL"]
-  projects = [
+  business     = "Hun Management"
+  location     = "San Francisco, CA"
+  title        = "Platform Engineer"
+  start        = 2010-06-01T12:00:00Z
+  end          = 2010-11-15T12:00:00Z
+  languages    = ["c++", "python"]
+  technologies = ["FIX", "STL"]
+  projects     = [
     "Optimized and refactored the C++ trading platform",
     "Worked with trading staff in developing strategies against our platform",
     "Reverse engineered remote service implemenations for optimal entry of orders during market open",
@@ -121,6 +132,18 @@ email     = "c.conger@gmail.com"
     "Supported engineering and sales offices in the Southwest Region of the US both remotely and locally",
   ]
 
+[[project]]
+  name         = "Gameplay Detection for Valorant"
+  languages    = ["go", "python"]
+  technologies = ["tensorflow", "keras", "docker", "cloudrun"]
+  url          = "https://gameplay.chandyman.dev/?video=1007670492"
+  code         = "https://github.com/cconger/gameplay-classifer"
+  description  = """
+Built a simple ML classifier for gameplay detection for livestream and tournament VODs to be able to scrub through long form vods to only moments with gameplay.
+The network utilized transfer learning from a pretrained ResNet50 that was fine tuned on collected and labeled frames from Twitch VODs.
+Final throughput is around 16-18x real time on a gaming class GPU including VOD download time.
+"""
+
 [[degree]]
   institution = "Northeastern University"
   title      = "Bachelor of Science in Computer Science and Information Science"
@@ -136,4 +159,3 @@ email     = "c.conger@gmail.com"
   [degree.gpa]
     earned = 3.6
     max = 4.0
-

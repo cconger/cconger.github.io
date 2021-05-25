@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      body {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 2em;
+        font-family: "helvetica neue", "sans-serif";
+        font-size: 14px;
+      }
+
+      html {
+        margin: 0;
+        padding: 0;
+      }
+
+      .info {
+        display: flex;
+        align-items: baseline;
+        border-bottom: solid thin black;
+      }
+
+      .info .name {
+        font-size: 40px;
+        flex-grow: 1;
+      }
+
+      .info .contact {
+        font-weight: 300;
+      }
+
+      .job {
+        margin: 1em 0;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+      }
+
+      .job .employment {
+        padding-right: 0;
+        font-weight: 300;
+      }
+
+      .job .business {
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 0.5em;
+      }
+
+      .job .left {
+        text-align: left;
+        flex-grow: 1;
+      }
+
+      .job .right {
+        text-align: right;
+        width: 170px;
+        flex-grow: 0;
+      }
+
+      .job .location {
+        font-weight: 200;
+      }
+
+      .job .title {
+        font-size: 18px;
+        font-weight: 300;
+        flex-grow: 1;
+        position: relative;
+        border-bottom: solid 2px rgba(0,0,0,0.5);
+      }
+
+      .keywords {
+        font-size: 10px;
+        font-family: monospace;
+        margin-top: 1em;
+      }
+
+      .keyword-label {
+        font-weight: bold;
+        margin-top: 0.3em;
+      }
+
+      .gpa {
+        font-family: monospace;
+      }
+
+      .projects {
+        font-weight: 300;
+      }
+
+      .project {
+        margin: 0.2em 0;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header class="info">
+      <div class="name">{{.Owner.Firstname}} {{.Owner.Lastname}}</div>
+      <div class="contact">{{.Owner.Email}}</div>
+    </header>
+    <section class="professional">
+      {{ range $i, $element := .Jobs }}
+        <section class="job">
+          <div class="left">
+            <div>
+              <span class="business">{{$element.Business}}</span>
+              <span class="location">{{$element.Location}}</span>
+            </div>
+            <div><span class="title">{{$element.Title}}<span></div>
+            <div class="projects">
+            {{ range $i, $proj := $element.Projects }}
+              <div class="project">{{$proj}}</div>
+            {{ end }}
+            </div>
+          </div>
+          <div class="right">
+            <div class="employment">{{$element.Tenure}}</div>
+            <div class="keywords">
+              <div class="keyword-label">Langs</div>
+              <div>
+                {{ range $i, $lang := $element.Languages }}
+                  <span class="language">{{$lang}}</span>
+                {{ end }}
+              </div>
+              <div class="keyword-label">Techs</div>
+              <div>
+                {{ range $i, $tech := $element.Technologies }}
+                  <span class="technology">{{$tech}}</span>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        </section>
+      {{end}}
+    </section>
+    <section class="education">
+      {{ range $i, $degree := .Degrees}}
+        <section class="job">
+          <div class="left">
+            <div>
+              <span class="business">{{$degree.Institution}}</span>
+              <span class="location">{{$degree.Location}}</span>
+            </div>
+            <div><span class="title">{{$degree.Title}}<span></div>
+            <div class="projects">
+            {{ range $i, $accolade := $degree.Accolades }}
+              <div class="project">{{$accolade}}</div>
+            {{ end }}
+            </div>
+          </div>
+          <div class="right">
+            <div class="employment">{{$degree.Tenure}}</div>
+            <div class="gpa"><span class="label">GPA:</span> <span class="earned">{{$degree.GPA.Earned}}</span> / <span class="max">{{$degree.GPA.Max}}</span></div>
+          </div>
+        </section>
+      {{end}}
+    </section>
+  </body>
+</html>

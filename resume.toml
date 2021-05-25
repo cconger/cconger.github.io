@@ -7,14 +7,14 @@ email     = "c.conger@gmail.com"
 [[job]]
   business     = "Neflix"
   location    = "Los Gatos, CA"
-  title        = "Senior Software Engineer"
+  title        = "Senior Software Engineer - Productivity"
   start        = 2019-01-07T12:00:00Z
   languages    = ["go", "js", "python"]
   technologies = ["kubernetes", "aws", "openfaas"]
   projects     = [
     "Developed and operated serverless platform for abstracting Netflix infrastructure from application logic",
-    "Built out multi-container workload deployment on Netflix's container orchestrator, Titus",
-    "Partnered with the Machine Learning Infrastructure team to provide the hosting for trained models"
+    "Member of cross-org team building out multi-container workload deployments on Netflix's container orchestrator, Titus",
+    "Partnered with the Machine Learning team to provide the hosting for trained models"
   ]
 
 [[job]]
@@ -26,10 +26,10 @@ email     = "c.conger@gmail.com"
   languages    = ["typescript", "go", "js"]
   technologies = ["react", "graphql", "apollo", "aws", "ember"]
   projects     = [
-    "Developed PoC deployment of OpenConnect-like caching host for improving Twitch's video replication network",
-    "Architected, documented, and implemented a social content sharing platform to operate for 15MM+ DAU",
+    "Developed PoC deployment of OpenConnect-like caching host for Twitch's video replication network",
+    "Architected, documented, and implemented a social content platform to operate for 15MM+ DAU",
     "Implemented PoC Client Translation to evangelize and migrate web application to GraphQL",
-    "Member of working group to rearchitect our web application to scale to a larger team of contributors and experiments",
+    "Member of working group to rearchitect our web application to scale to a larger team of contributors",
     "Invested in application deployment process by adopting containers",
   ]
 

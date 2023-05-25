@@ -5,10 +5,25 @@ phone     = "650.262.0112"
 email     = "c.conger@gmail.com"
 
 [[job]]
+  business     = "Mux"
+  location     = "San Francisco, CA"
+  title        = "Senior Software Engineer"
+  start        = 2021-08-02T12:00:00Z
+  languages    = ["go", "typescript"]
+  technologies = ["kubernetes", "gcp", "kafka", "clickhouse", "bazel", "wasm"]
+  projects     = [
+    "Implemented Stream Security feature for limiting access to video content on specific properties",
+    "Member of Developer Velocity working group focused on improving the tooilng and process of development",
+    "Led initiative defining internal goals for availability and worked to measure and improve",
+    "Mentoring engineers and providing technical guidance about advancing as an individual contributor",
+  ]
+
+[[job]]
   business     = "Neflix"
-  location    = "Los Gatos, CA"
+  location     = "Los Gatos, CA"
   title        = "Senior Software Engineer - Productivity"
   start        = 2019-01-07T12:00:00Z
+  end          = 2021-07-23T12:00:00Z
   languages    = ["go", "js", "python"]
   technologies = ["kubernetes", "aws", "openfaas"]
   projects     = [
@@ -61,7 +76,7 @@ email     = "c.conger@gmail.com"
     "Designed a horizontally and automatically scalable instanced game server infrastructure",
   ]
 
-[[job]]
+[[legacy]]
   business     = "500Friends Inc"
   location     = "San Francisco, CA"
   title        = "Senior Software Engineer"

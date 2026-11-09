@@ -1,2 +1,4 @@
-#!/bin/bash
-go run ./cmd/build -data resume.toml -template template.html > index.html
+#!/bin/sh
+set -eu
+cd "$(dirname "$0")"
+go run ./cmd/build -output index.html

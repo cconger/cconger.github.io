@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"fmt"
 	"html/template"
@@ -10,84 +11,98 @@ import (
 	"os"
 	"time"
 
-	"github.com/cconger/cconger.github.io/resume"
-	"github.com/pelletier/go-toml"
+	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/ast"
+	"github.com/yuin/goldmark/parser"
+	"github.com/yuin/goldmark/text"
 )
 
-func render(w io.Writer, dataPath string, templatePath string) error {
-	file, err := os.Open(dataPath)
+func render(w io.Writer, sourcePath, templatePath string) error {
+	source, err := os.ReadFile(sourcePath)
 	if err != nil {
-		return fmt.Errorf("unable to open datafile %s: %w", dataPath, err)
+		return fmt.Errorf("read Markdown: %w", err)
 	}
 
-	var data resume.Resume
-	err = toml.NewDecoder(file).Decode(&data)
-	if err != nil {
-		return fmt.Errorf("unable to process resume data: %w", err)
+	md := goldmark.New(goldmark.WithParserOptions(parser.WithAutoHeadingID()))
+	doc := md.Parser().Parse(text.NewReader(source))
+	title := "Resume"
+	for node := doc.FirstChild(); node != nil; node = node.NextSibling() {
+		if heading, ok := node.(*ast.Heading); ok && heading.Level == 1 {
+			title = string(heading.Text(source)) + " — Resume"
+			break
+		}
+	}
+	var content bytes.Buffer
+	if err := md.Renderer().Render(&content, source, doc); err != nil {
+		return fmt.Errorf("render Markdown: %w", err)
 	}
 
 	tmpl, err := template.ParseFiles(templatePath)
 	if err != nil {
-		return fmt.Errorf("unable to parse template file: %w", err)
+		return fmt.Errorf("parse page template: %w", err)
 	}
-
-	err = tmpl.Execute(w, data)
-	if err != nil {
-		return fmt.Errorf("error executing template: %w", err)
+	// Only HTML produced by the Markdown renderer is trusted here. Raw HTML in
+	// the source is disabled by Goldmark's default renderer.
+	page := struct {
+		Title   string
+		Content template.HTML
+	}{title, template.HTML(content.String())}
+	var output bytes.Buffer
+	if err := tmpl.Execute(&output, page); err != nil {
+		return fmt.Errorf("render page template: %w", err)
 	}
-	return nil
+	_, err = output.WriteTo(w)
+	return err
 }
 
-func liveServe(dataPath string, templatePath string) error {
-	handler := func(w http.ResponseWriter, r *http.Request) {
-		err := render(w, dataPath, templatePath)
-		if err != nil {
-			w.WriteHeader(http.StatusInternalServerError)
-			fmt.Fprintf(w, "Render error: %v", err)
+func liveServe(sourcePath, templatePath, addr string) error {
+	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/" && r.URL.Path != "/index.html" {
+			http.NotFound(w, r)
+			return
 		}
+		var page bytes.Buffer
+		if err := render(&page, sourcePath, templatePath); err != nil {
+			log.Printf("render: %v", err)
+			http.Error(w, "Unable to render resume", http.StatusInternalServerError)
+			return
+		}
+		w.Header().Set("Content-Type", "text/html; charset=utf-8")
+		w.Header().Set("Cache-Control", "no-store")
+		_, _ = page.WriteTo(w)
+	})
+	server := &http.Server{
+		Addr: addr, Handler: handler,
+		ReadTimeout: 3 * time.Second, WriteTimeout: 3 * time.Second,
+		IdleTimeout: 30 * time.Second,
 	}
-
-	s := &http.Server{
-		Addr:         ":8080",
-		Handler:      http.HandlerFunc(handler),
-		ReadTimeout:  3 * time.Second,
-		WriteTimeout: 3 * time.Second,
-	}
-
-	return s.ListenAndServe()
+	log.Printf("Preview at http://%s (refresh after editing)", addr)
+	return server.ListenAndServe()
 }
 
 func main() {
-	logger := log.New(os.Stderr, "", 0)
-
-	dataPath := flag.String("data", "", "Required: path to .toml file containing resume")
-	templatePath := flag.String("template", "", "Required: path to go template for rendering")
-	outputPath := flag.String("output", "", "optional output path otherwise written to stdout")
-	serve := flag.Bool("serve", false, "run as a webserver to view output")
+	log.SetFlags(0)
+	sourcePath := flag.String("data", "resume.md", "path to the Markdown resume")
+	templatePath := flag.String("template", "template.html", "path to the page template")
+	outputPath := flag.String("output", "", "output file (defaults to stdout)")
+	serve := flag.Bool("serve", false, "preview current source on each request")
+	addr := flag.String("addr", "127.0.0.1:8080", "preview server address")
 	flag.Parse()
-
-	if *dataPath == "" {
-		logger.Fatal("data is a required flag")
-	}
-	if *templatePath == "" {
-		logger.Fatal("template is a required flag")
-	}
-
 	if *serve {
-		err := liveServe(*dataPath, *templatePath)
-		if err != nil {
-			logger.Fatal("server error: %v", err)
+		if err := liveServe(*sourcePath, *templatePath, *addr); err != nil {
+			log.Fatal(err)
 		}
+		return
 	}
-
-	out := os.Stdout
+	var page bytes.Buffer
+	if err := render(&page, *sourcePath, *templatePath); err != nil {
+		log.Fatal(err)
+	}
 	if *outputPath != "" {
-		// update out to be the file specified here.
-		logger.Print("[WARN] File output not yet supported please pipe output")
-	}
-
-	err := render(out, *dataPath, *templatePath)
-	if err != nil {
-		logger.Fatal(err)
+		if err := os.WriteFile(*outputPath, page.Bytes(), 0644); err != nil {
+			log.Fatal(err)
+		}
+	} else if _, err := page.WriteTo(os.Stdout); err != nil {
+		log.Fatal(err)
 	}
 }

@@ -1,474 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <style type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Channing Conger — Resume</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #202b32;
+        --muted: #5a696f;
+        --accent: #236b68;
+        --line: #dbe3e2;
+      }
+      * { box-sizing: border-box; }
       body {
-        max-width: 1024px;
-        margin: 0 auto;
-        padding: 2em;
-        font-family: "helvetica neue", "sans-serif";
-        font-size: 14px;
-      }
-
-      html {
         margin: 0;
-        padding: 0;
+        background: #eef2f1;
+        color: var(--ink);
+        font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
       }
-
-      .info {
+      main {
+        max-width: 900px;
+        margin: 48px auto;
+        padding: 36px 72px;
+        border-top: 5px solid var(--accent);
+        background: #fff;
+        box-shadow: 0 8px 40px #20332d0a;
+      }
+      h1, h2, h3 { line-height: 1.25; }
+      h1 { float: left; margin: 0; font-size: 2rem; letter-spacing: -.035em; }
+      h1 + p {
         display: flex;
-        align-items: baseline;
-        border-bottom: solid thin black;
+        justify-content: flex-end;
+        align-items: center;
+        min-height: 40px;
+        margin: 0;
+        color: var(--muted);
+        font-size: .9rem;
       }
-
-      .info .name {
-        font-size: 40px;
-        flex-grow: 1;
+      h2 {
+        clear: both;
+        margin: 40px 0 24px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--line);
+        color: var(--accent);
+        font-size: .8rem;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
       }
-
-      .info .contact {
-        font-weight: 300;
-      }
-
-      .job {
-        margin: 1em 0;
-        page-break-inside: avoid;
-      }
-
-      .cols {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: baseline;
-      }
-
-      .job .employment {
-        padding-right: 0;
-        font-weight: 300;
-      }
-
-      .job .business {
-        font-size: 20px;
-        font-weight: bold;
-        margin-right: 0.5em;
-      }
-
-      .job .left {
+      h3 { margin: 28px 0 8px; font-size: 1.2rem; letter-spacing: -.015em; }
+      h2 + h3 { margin-top: 0; }
+      p { margin: 10px 0; }
+      h3 + p { color: var(--muted); font-size: .9rem; }
+      h3 + p:has(> strong) { display: flow-root; text-align: right; }
+      h3 + p strong {
+        float: left;
+        max-width: 65%;
+        padding-right: 16px;
+        color: var(--ink);
+        font-size: 1rem;
+        font-weight: 600;
         text-align: left;
-        flex-grow: 1;
       }
-
-      .job .right {
-        flex-grow: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+      h3 + p:has(> strong) br { display: none; }
+      ul { margin: 14px 0; padding-left: 1.2em; }
+      li { margin: 6px 0; padding-left: 3px; }
+      li::marker { color: var(--accent); }
+      ul + p { color: var(--muted); font-size: .8rem; }
+      a { color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+      a:hover { text-decoration-thickness: 2px; }
+      a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+      pre { overflow-x: auto; }
+      img { max-width: 100%; }
+      @media (max-width: 640px) {
+        body { background: #fff; font-size: 15px; }
+        main { margin: 0; padding: 32px 24px; box-shadow: none; }
+        h1 { float: none; font-size: 1.75rem; }
+        h1 + p { justify-content: flex-start; min-height: 0; margin-top: 8px; }
+        h3 + p strong { float: none; display: block; max-width: none; padding-right: 0; }
+        h2 { margin-top: 32px; }
       }
-
-      .job .location {
-        font-weight: 200;
+      @page { margin: 16mm; }
+      @media print {
+        body { background: #fff; font-size: 10pt; line-height: 1.45; color: #000; }
+        main { margin: 0; padding: 0; max-width: none; border: 0; box-shadow: none; }
+        h1 { float: left; font-size: 22pt; }
+        h1 + p { justify-content: flex-end; min-height: 28pt; margin: 0; }
+        h2 { margin-top: 22px; }
+        h3 { margin-top: 20px; }
+        h1, h2, h3 { break-after: avoid; }
+        h3 + p { break-after: avoid; }
+        li { break-inside: avoid; }
+        p { orphans: 3; widows: 3; }
+        a { color: inherit; }
       }
-
-      .job .title {
-        font-size: 18px;
-        font-weight: 300;
-        flex-grow: 1;
-        position: relative;
-        border-bottom: solid 2px rgba(0,0,0,0.5);
-      }
-
-      .keywords {
-        text-align: right;
-        font-size: 10px;
-        font-family: monospace;
-        max-width: 120px;
-      }
-
-      .keyword-label {
-        font-weight: bold;
-        margin-top: 0.3em;
-      }
-
-      .gpa {
-        margin-top: 1em;
-        font-size: 12px;
-        font-family: monospace;
-      }
-
-      .projects {
-        font-weight: 300;
-      }
-
-      .project {
-        margin: 0.2em 0;
-      }
-
     </style>
   </head>
   <body>
-    <header class="info">
-      <div class="name">Channing Conger</div>
-      <div class="contact">c.conger@gmail.com</div>
-    </header>
-    <section class="professional">
-      
-        <section class="job">
-          <div class="cols">
-            <div class="left">
-              <div>
-                <span class="business">Mux</span>
-                <span class="location">San Francisco, CA</span>
-              </div>
-            </div>
-            <div class="right">
-              <div class="employment">Aug 2021 - Present</div>
-            </div>
-          </div>
-          <div class="cols">
-            <div class="left">
-              <div><span class="title">Senior Software Engineer<span></div>
-              <div class="projects">
-              
-                <div class="project">Implemented Stream Security feature for limiting access to video content on specific properties</div>
-              
-                <div class="project">Member of Developer Velocity working group focused on improving the tooilng and process of development</div>
-              
-                <div class="project">Led initiative defining internal goals for availability and worked to measure and improve</div>
-              
-                <div class="project">Mentoring engineers and providing technical guidance about advancing as an individual contributor</div>
-              
-              </div>
-            </div>
-            <div class="right">
-              <div class="keywords">
-                <div class="keyword-label">Langs</div>
-                <div>
-                  
-                    <span class="language">go</span>
-                  
-                    <span class="language">typescript</span>
-                  
-                </div>
-                <div class="keyword-label">Techs</div>
-                <div>
-                  
-                    <span class="technology">kubernetes</span>
-                  
-                    <span class="technology">gcp</span>
-                  
-                    <span class="technology">kafka</span>
-                  
-                    <span class="technology">clickhouse</span>
-                  
-                    <span class="technology">bazel</span>
-                  
-                    <span class="technology">wasm</span>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      
-        <section class="job">
-          <div class="cols">
-            <div class="left">
-              <div>
-                <span class="business">Neflix</span>
-                <span class="location">Los Gatos, CA</span>
-              </div>
-            </div>
-            <div class="right">
-              <div class="employment">Jan 2019 - Jul 2021</div>
-            </div>
-          </div>
-          <div class="cols">
-            <div class="left">
-              <div><span class="title">Senior Software Engineer - Productivity<span></div>
-              <div class="projects">
-              
-                <div class="project">Developed and operated serverless platform for abstracting Netflix infrastructure from application logic</div>
-              
-                <div class="project">Member of cross-org team building out multi-container workload deployments on Netflix&#39;s container orchestrator, Titus</div>
-              
-                <div class="project">Partnered with the Machine Learning team to provide the hosting for trained models</div>
-              
-              </div>
-            </div>
-            <div class="right">
-              <div class="keywords">
-                <div class="keyword-label">Langs</div>
-                <div>
-                  
-                    <span class="language">go</span>
-                  
-                    <span class="language">js</span>
-                  
-                    <span class="language">python</span>
-                  
-                </div>
-                <div class="keyword-label">Techs</div>
-                <div>
-                  
-                    <span class="technology">kubernetes</span>
-                  
-                    <span class="technology">aws</span>
-                  
-                    <span class="technology">openfaas</span>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      
-        <section class="job">
-          <div class="cols">
-            <div class="left">
-              <div>
-                <span class="business">Twitch</span>
-                <span class="location">San Francisco, CA</span>
-              </div>
-            </div>
-            <div class="right">
-              <div class="employment">Dec 2014 - Jan 2019</div>
-            </div>
-          </div>
-          <div class="cols">
-            <div class="left">
-              <div><span class="title">Senior Software Engineer<span></div>
-              <div class="projects">
-              
-                <div class="project">Developed PoC deployment of OpenConnect-like caching host for Twitch&#39;s video replication network</div>
-              
-                <div class="project">Architected, documented, and implemented a social content platform to operate for 15MM&#43; DAU</div>
-              
-                <div class="project">Implemented PoC Client Translation to evangelize and migrate web application to GraphQL</div>
-              
-                <div class="project">Member of working group to rearchitect our web application to scale to a larger team of contributors</div>
-              
-                <div class="project">Invested in application deployment process by adopting containers</div>
-              
-              </div>
-            </div>
-            <div class="right">
-              <div class="keywords">
-                <div class="keyword-label">Langs</div>
-                <div>
-                  
-                    <span class="language">typescript</span>
-                  
-                    <span class="language">go</span>
-                  
-                    <span class="language">js</span>
-                  
-                </div>
-                <div class="keyword-label">Techs</div>
-                <div>
-                  
-                    <span class="technology">react</span>
-                  
-                    <span class="technology">graphql</span>
-                  
-                    <span class="technology">apollo</span>
-                  
-                    <span class="technology">aws</span>
-                  
-                    <span class="technology">ember</span>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      
-        <section class="job">
-          <div class="cols">
-            <div class="left">
-              <div>
-                <span class="business">Interana</span>
-                <span class="location">Palo Alto, CA</span>
-              </div>
-            </div>
-            <div class="right">
-              <div class="employment">May 2014 - Sep 2014</div>
-            </div>
-          </div>
-          <div class="cols">
-            <div class="left">
-              <div><span class="title">Engineer<span></div>
-              <div class="projects">
-              
-                <div class="project">Introduced a modern build proess and React to our data visualation and query web application</div>
-              
-                <div class="project">Reachitected web server for query submission with a focus on improving single host throughput</div>
-              
-                <div class="project">Built a flow control wrapper to enable evented async handling of long query operations</div>
-              
-              </div>
-            </div>
-            <div class="right">
-              <div class="keywords">
-                <div class="keyword-label">Langs</div>
-                <div>
-                  
-                    <span class="language">js</span>
-                  
-                    <span class="language">python</span>
-                  
-                    <span class="language">c&#43;&#43;</span>
-                  
-                </div>
-                <div class="keyword-label">Techs</div>
-                <div>
-                  
-                    <span class="technology">react</span>
-                  
-                    <span class="technology">tornado</span>
-                  
-                    <span class="technology">node</span>
-                  
-                    <span class="technology">webpack</span>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      
-        <section class="job">
-          <div class="cols">
-            <div class="left">
-              <div>
-                <span class="business">Out of Worlds</span>
-                <span class="location">Sunnyvale, CA</span>
-              </div>
-            </div>
-            <div class="right">
-              <div class="employment">Dec 2013 - May 2014</div>
-            </div>
-          </div>
-          <div class="cols">
-            <div class="left">
-              <div><span class="title">Founder / Engineer<span></div>
-              <div class="projects">
-              
-                <div class="project">Prototyped a WebGL based 3D online multiplayer game</div>
-              
-                <div class="project">Implemented lag mitigating network protocol in JS and Go over Websockets</div>
-              
-                <div class="project">Designed a horizontally and automatically scalable instanced game server infrastructure</div>
-              
-              </div>
-            </div>
-            <div class="right">
-              <div class="keywords">
-                <div class="keyword-label">Langs</div>
-                <div>
-                  
-                    <span class="language">js</span>
-                  
-                    <span class="language">go</span>
-                  
-                    <span class="language">opengl</span>
-                  
-                </div>
-                <div class="keyword-label">Techs</div>
-                <div>
-                  
-                    <span class="technology">node</span>
-                  
-                    <span class="technology">webgl</span>
-                  
-                    <span class="technology">three.js</span>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      
-        <section class="job">
-          <div class="cols">
-            <div class="left">
-              <div>
-                <span class="business">Rockmelt Inc</span>
-                <span class="location">Mountain View, CA</span>
-              </div>
-            </div>
-            <div class="right">
-              <div class="employment">Nov 2010 - Aug 2013</div>
-            </div>
-          </div>
-          <div class="cols">
-            <div class="left">
-              <div><span class="title">Software Engineer<span></div>
-              <div class="projects">
-              
-                <div class="project">Prototyped, designed and developed the core of Rockmelt&#39;s web application</div>
-              
-                <div class="project">Lead engineer of the Rockmelt web application team as staff from 1 to 5</div>
-              
-                <div class="project">Implemented a declarative Javascript web application framework for rapid iteration</div>
-              
-                <div class="project">Integrated core Facebook features into native UI of our Chromium-derived browser</div>
-              
-              </div>
-            </div>
-            <div class="right">
-              <div class="keywords">
-                <div class="keyword-label">Langs</div>
-                <div>
-                  
-                    <span class="language">js</span>
-                  
-                    <span class="language">c&#43;&#43;</span>
-                  
-                </div>
-                <div class="keyword-label">Techs</div>
-                <div>
-                  
-                    <span class="technology">chrome</span>
-                  
-                    <span class="technology">cocoa</span>
-                  
-                    <span class="technology">extensions</span>
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      
-    </section>
-    <section class="education">
-      
-        <section class="job">
-          <div class="cols">
-            <div class="left">
-              <div>
-                <span class="business">Northeastern University</span>
-                <span class="location">Boston, MA</span>
-              </div>
-              <div><span class="title">Bachelor of Science in Computer Science and Information Science<span></div>
-              <div class="projects">
-              
-                <div class="project">Deans List 2006-2010</div>
-              
-                <div class="project">Named One of Top 100 Influential Seniors</div>
-              
-                <div class="project">Received one of sixteen 2010 Outstanding Co-op Awards</div>
-              
-                <div class="project">First Place in 2010 National Collegiate Cyber Defense Competition</div>
-              
-              </div>
-            </div>
-            <div class="right">
-              <div class="employment">Sep 2006 - May 2010</div>
-            </div>
-          </div>
-        </section>
-      
-    </section>
+    <main aria-label="Resume"><h1 id="channing-conger">Channing Conger</h1>
+<p>c.conger@gmail.com</p>
+<h2 id="experience">Experience</h2>
+<h3 id="openai">OpenAI</h3>
+<p><strong>Member of the Technical Staff</strong>
+San Francisco, CA · 2023 - Present</p>
+<ul>
+<li>Early member of the Codex team, building cloud runtimes as the project evolved from internal retrieval and question answering into a cloud agent that produces mergeable pull requests</li>
+<li>Experimented with incremental indexing for retrieval over codebases and built fast-starting container images for development against a large codebase.</li>
+<li>On the Codex research team, restored multimodal capabilities to the post-training stack, enabling models to use visual feedback when evaluating frontend work and accept images and diagrams as input</li>
+<li>Built the V8-based Code Mode runtime, enabling models to discover and compose tools while keeping unnecessary tool output out of their context. The approach improved token efficiency and made more agentic capabilities accessible to models with smaller context windows</li>
+<li>Evaluated and hardened Code Mode’s security, moving the runtime from an embedded tool into an isolated, locked-down process</li>
+<li>Led an engineering project to improve GPU reservation and allocation across teams, increasing utilization and enabling faster deployment of new models</li>
+<li>Supported, operated and participated in on-call for our global GPU fleet serving large language models</li>
+</ul>
+<h3 id="mux">Mux</h3>
+<p><strong>Staff Software Engineer</strong><br>
+San Francisco, CA · 2021 – 2023</p>
+<ul>
+<li>Worked on the cost, availability, and latency of video delivery infrastructure.</li>
+<li>Operated realtime data (clickhouse + kafka) infrastructure for usage tracking and billing.</li>
+<li>Implemented a custom Stream Security feature to restrict content access by property.</li>
+<li>Helped improve development tooling and processes as a member of the Developer Velocity working group.</li>
+</ul>
+<h3 id="netflix">Netflix</h3>
+<p><strong>Senior Software Engineer</strong><br>
+Los Gatos, CA · 2019 – 2021</p>
+<ul>
+<li>Built a first-party functions as a service platform for rapidly deploying and scaling application code</li>
+<li>Member of cross-org team building out multi-container workload deployments on Netflix's container orchestrator, Titus</li>
+<li>Partnered with the Machine Learning team to provide the hosting for trained models</li>
+</ul>
+<h3 id="twitch">Twitch</h3>
+<p><strong>Senior Software Engineer</strong><br>
+San Francisco, CA · 2014 – 2019</p>
+<ul>
+<li>Prototyped an OpenConnect-like caching layer for live video replication</li>
+<li>Architected and Deployed infrastructure for social content sharing platform for 15MM+ DAU</li>
+<li>Migrated the web application stack to GraphQL as part of a team focused on time to first frame</li>
+<li>Participated in an architecture working group supporting contributions from a growing engineering team</li>
+</ul>
+<h3 id="interana">Interana</h3>
+<p><strong>Engineer</strong><br>
+Palo Alto, CA · 2014</p>
+<ul>
+<li>Introduced a modern build process and React to our data visualization and query web application</li>
+<li>Rearchitected web server for query submission with a focus on improving single host throughput</li>
+<li>Built a flow control wrapper to enable evented async handling of long query operations</li>
+</ul>
+<h3 id="rockmelt-inc">Rockmelt Inc</h3>
+<p><strong>Software Engineer</strong><br>
+Mountain View, CA · 2010 – 2013</p>
+<ul>
+<li>Led development of the Rockmelt web application as the team grew from one to five engineers.</li>
+<li>Built a declarative JavaScript application framework to support rapid iteration.</li>
+<li>Integrated Facebook features into the native UI of a Chromium-derived browser.</li>
+</ul>
+<h2 id="education">Education</h2>
+<h3 id="northeastern-university">Northeastern University</h3>
+<p><strong>Bachelor of Science in Computer Science and Information Science</strong><br>
+Boston, MA · 2010</p>
+<ul>
+<li>Named One of Top 100 Influential Seniors</li>
+<li>Received one of sixteen 2010 Outstanding Co-op Awards</li>
+<li>First Place in 2010 National Collegiate Cyber Defense Competition</li>
+</ul>
+</main>
   </body>
 </html>

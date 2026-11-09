@@ -1,180 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <style type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{.Title}}</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #202b32;
+        --muted: #5a696f;
+        --accent: #236b68;
+        --line: #dbe3e2;
+      }
+      * { box-sizing: border-box; }
       body {
-        max-width: 1024px;
-        margin: 0 auto;
-        padding: 2em;
-        font-family: "helvetica neue", "sans-serif";
-        font-size: 14px;
-      }
-
-      html {
         margin: 0;
-        padding: 0;
+        background: #eef2f1;
+        color: var(--ink);
+        font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        -webkit-font-smoothing: antialiased;
       }
-
-      .info {
+      main {
+        max-width: 900px;
+        margin: 48px auto;
+        padding: 36px 72px;
+        border-top: 5px solid var(--accent);
+        background: #fff;
+        box-shadow: 0 8px 40px #20332d0a;
+      }
+      h1, h2, h3 { line-height: 1.25; }
+      h1 { float: left; margin: 0; font-size: 2rem; letter-spacing: -.035em; }
+      h1 + p {
         display: flex;
-        align-items: baseline;
-        border-bottom: solid thin black;
+        justify-content: flex-end;
+        align-items: center;
+        min-height: 40px;
+        margin: 0;
+        color: var(--muted);
+        font-size: .9rem;
       }
-
-      .info .name {
-        font-size: 40px;
-        flex-grow: 1;
+      h2 {
+        clear: both;
+        margin: 40px 0 24px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--line);
+        color: var(--accent);
+        font-size: .8rem;
+        font-weight: 700;
+        letter-spacing: .14em;
+        text-transform: uppercase;
       }
-
-      .info .contact {
-        font-weight: 300;
-      }
-
-      .job {
-        margin: 1em 0;
-        page-break-inside: avoid;
-      }
-
-      .cols {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: baseline;
-      }
-
-      .job .employment {
-        padding-right: 0;
-        font-weight: 300;
-      }
-
-      .job .business {
-        font-size: 20px;
-        font-weight: bold;
-        margin-right: 0.5em;
-      }
-
-      .job .left {
+      h3 { margin: 28px 0 8px; font-size: 1.2rem; letter-spacing: -.015em; }
+      h2 + h3 { margin-top: 0; }
+      p { margin: 10px 0; }
+      h3 + p { color: var(--muted); font-size: .9rem; }
+      h3 + p:has(> strong) { display: flow-root; text-align: right; }
+      h3 + p strong {
+        float: left;
+        max-width: 65%;
+        padding-right: 16px;
+        color: var(--ink);
+        font-size: 1rem;
+        font-weight: 600;
         text-align: left;
-        flex-grow: 1;
       }
-
-      .job .right {
-        flex-grow: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+      h3 + p:has(> strong) br { display: none; }
+      ul { margin: 14px 0; padding-left: 1.2em; }
+      li { margin: 6px 0; padding-left: 3px; }
+      li::marker { color: var(--accent); }
+      ul + p { color: var(--muted); font-size: .8rem; }
+      a { color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+      a:hover { text-decoration-thickness: 2px; }
+      a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+      pre { overflow-x: auto; }
+      img { max-width: 100%; }
+      @media (max-width: 640px) {
+        body { background: #fff; font-size: 15px; }
+        main { margin: 0; padding: 32px 24px; box-shadow: none; }
+        h1 { float: none; font-size: 1.75rem; }
+        h1 + p { justify-content: flex-start; min-height: 0; margin-top: 8px; }
+        h3 + p strong { float: none; display: block; max-width: none; padding-right: 0; }
+        h2 { margin-top: 32px; }
       }
-
-      .job .location {
-        font-weight: 200;
+      @page { margin: 16mm; }
+      @media print {
+        body { background: #fff; font-size: 10pt; line-height: 1.45; color: #000; }
+        main { margin: 0; padding: 0; max-width: none; border: 0; box-shadow: none; }
+        h1 { float: left; font-size: 22pt; }
+        h1 + p { justify-content: flex-end; min-height: 28pt; margin: 0; }
+        h2 { margin-top: 22px; }
+        h3 { margin-top: 20px; }
+        h1, h2, h3 { break-after: avoid; }
+        h3 + p { break-after: avoid; }
+        li { break-inside: avoid; }
+        p { orphans: 3; widows: 3; }
+        a { color: inherit; }
       }
-
-      .job .title {
-        font-size: 18px;
-        font-weight: 300;
-        flex-grow: 1;
-        position: relative;
-        border-bottom: solid 2px rgba(0,0,0,0.5);
-      }
-
-      .keywords {
-        text-align: right;
-        font-size: 10px;
-        font-family: monospace;
-        max-width: 120px;
-      }
-
-      .keyword-label {
-        font-weight: bold;
-        margin-top: 0.3em;
-      }
-
-      .gpa {
-        margin-top: 1em;
-        font-size: 12px;
-        font-family: monospace;
-      }
-
-      .projects {
-        font-weight: 300;
-      }
-
-      .project {
-        margin: 0.2em 0;
-      }
-
     </style>
   </head>
   <body>
-    <header class="info">
-      <div class="name">{{.Owner.Firstname}} {{.Owner.Lastname}}</div>
-      <div class="contact">{{.Owner.Email}}</div>
-    </header>
-    <section class="professional">
-      {{ range $i, $element := .Jobs }}
-        <section class="job">
-          <div class="cols">
-            <div class="left">
-              <div>
-                <span class="business">{{$element.Business}}</span>
-                <span class="location">{{$element.Location}}</span>
-              </div>
-            </div>
-            <div class="right">
-              <div class="employment">{{$element.Tenure}}</div>
-            </div>
-          </div>
-          <div class="cols">
-            <div class="left">
-              <div><span class="title">{{$element.Title}}<span></div>
-              <div class="projects">
-              {{ range $i, $proj := $element.Projects }}
-                <div class="project">{{$proj}}</div>
-              {{ end }}
-              </div>
-            </div>
-            <div class="right">
-              <div class="keywords">
-                <div class="keyword-label">Langs</div>
-                <div>
-                  {{ range $i, $lang := $element.Languages }}
-                    <span class="language">{{$lang}}</span>
-                  {{ end }}
-                </div>
-                <div class="keyword-label">Techs</div>
-                <div>
-                  {{ range $i, $tech := $element.Technologies }}
-                    <span class="technology">{{$tech}}</span>
-                  {{ end }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      {{end}}
-    </section>
-    <section class="education">
-      {{ range $i, $degree := .Degrees}}
-        <section class="job">
-          <div class="cols">
-            <div class="left">
-              <div>
-                <span class="business">{{$degree.Institution}}</span>
-                <span class="location">{{$degree.Location}}</span>
-              </div>
-              <div><span class="title">{{$degree.Title}}<span></div>
-              <div class="projects">
-              {{ range $i, $accolade := $degree.Accolades }}
-                <div class="project">{{$accolade}}</div>
-              {{ end }}
-              </div>
-            </div>
-            <div class="right">
-              <div class="employment">{{$degree.Tenure}}</div>
-            </div>
-          </div>
-        </section>
-      {{end}}
-    </section>
+    <main aria-label="Resume">{{.Content}}</main>
   </body>
 </html>
